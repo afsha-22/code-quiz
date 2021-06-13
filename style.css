@@ -19,6 +19,23 @@
   display: none;
 }
 
+.quest2 {
+  display: none;
+}
+
+.quest3 {
+  display: none;
+}
+
+.last-page {
+  text-align: center;
+  display: none;
+}
+
+.last-page h2 {
+  text-align: center;
+}
+
 h2 {
   text-align: left;
   padding: 20px;
