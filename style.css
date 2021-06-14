@@ -6,13 +6,14 @@
   padding: 0 200px;
 }
 
-.first-page {
-  text-align: center;
-  display: block;
+h1 {
+  padding: 20px;
 }
 
-.first-page h2 {
+.first-page,
+.high-score-page {
   text-align: center;
+  display: block;
 }
 
 .quest1 {
@@ -30,15 +31,6 @@
 .last-page {
   text-align: center;
   display: none;
-}
-
-.last-page h2 {
-  text-align: center;
-}
-
-h2 {
-  text-align: left;
-  padding: 20px;
 }
 
 ul {
