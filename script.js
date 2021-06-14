@@ -17,7 +17,6 @@ q3cBtn = document.querySelector(".q3c")
 q3dBtn = document.querySelector(".q3d")
 lastPageEl = document.querySelector(".last-page")
 
-
 function startQuiz(){
     if (welcomeEl){
         welcomeEl.style.display = 'none';
