@@ -16,12 +16,28 @@ q3bBtn = document.querySelector(".q3b")
 q3cBtn = document.querySelector(".q3c")
 q3dBtn = document.querySelector(".q3d")
 lastPageEl = document.querySelector(".last-page")
+var timerEl = document.getElementById("timer")
+
+var tx = timerEl.value;
+tx = 5;
+timerEl.textContent = tx;
 
 function startQuiz(){
+    countdown();
     if (welcomeEl){
         welcomeEl.style.display = 'none';
         question1.style.display = 'block'; 
     }
+}
+
+function countdown(){
+    var t = setInterval(function() {
+        tx--;
+        timerEl.textContent = tx
+        if(tx===0) {
+            clearInterval(t)
+        }
+    }, 1000)  
 }
 
 function moveToQuest2(){
@@ -42,7 +58,7 @@ function moveToQuest3(){
 }
 
 function moveToLastPage(){
-    if(question2){
+    if(question3){
         welcomeEl.style.display = 'none';
         question1.style.display = 'none';
         question2.style.display = 'none';
