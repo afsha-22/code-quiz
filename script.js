@@ -1,22 +1,23 @@
-startBtn = document.getElementById("start");
-welcomeEl = document.querySelector(".first-page")
-question1 = document.querySelector(".quest1")
-q1aBtn = document.querySelector(".q1a")
-q1bBtn = document.querySelector(".q1b")
-q1cBtn = document.querySelector(".q1c")
-q1dBtn = document.querySelector(".q1d")
-question2 = document.querySelector(".quest2")
-q2aBtn = document.querySelector(".q2a")
-q2bBtn = document.querySelector(".q2b")
-q2cBtn = document.querySelector(".q2c")
-q2dBtn = document.querySelector(".q2d")
-question3 = document.querySelector(".quest3")
-q3aBtn = document.querySelector(".q3a")
-q3bBtn = document.querySelector(".q3b")
-q3cBtn = document.querySelector(".q3c")
-q3dBtn = document.querySelector(".q3d")
-lastPageEl = document.querySelector(".last-page")
+var startBtn = document.getElementById("start");
+var welcomeEl = document.querySelector(".first-page")
+var question1 = document.querySelector(".quest1")
+var q1aBtn = document.querySelector(".q1a")
+var q1bBtn = document.querySelector(".q1b")
+var q1cBtn = document.querySelector(".q1c")
+var q1dBtn = document.querySelector(".q1d")
+var question2 = document.querySelector(".quest2")
+var q2aBtn = document.querySelector(".q2a")
+var q2bBtn = document.querySelector(".q2b")
+var q2cBtn = document.querySelector(".q2c")
+var q2dBtn = document.querySelector(".q2d")
+var question3 = document.querySelector(".quest3")
+var q3aBtn = document.querySelector(".q3a")
+var q3bBtn = document.querySelector(".q3b")
+var q3cBtn = document.querySelector(".q3c")
+var q3dBtn = document.querySelector(".q3d")
+var lastPageEl = document.querySelector(".last-page")
 var timerEl = document.getElementById("timer")
+var scoreEl = document.querySelector(".display-score")
 
 var tx = timerEl.value;
 tx = 10;
@@ -34,10 +35,14 @@ function countdown(){
     var t = setInterval(function() {
         tx--;
         timerEl.textContent = tx
-        if(tx===0) {
-            clearInterval(t)
+        if((tx===0) || (lastPageEl.style.display === 'block')) {
+            stopTimer(t);
         }
     }, 1000)  
+}
+
+function stopTimer(t){
+    clearInterval(t)
 }
 
 function moveToQuest2(event){
@@ -84,6 +89,12 @@ function moveToLastPage(event){
         question3.style.display = 'none';
         lastPageEl.style.display = 'block';
     }
+    displayScore();
+}
+
+function displayScore(){
+    scoreEl.textContent = tx;
+
 }
 
 startBtn.addEventListener("click", startQuiz)
