@@ -19,7 +19,7 @@ lastPageEl = document.querySelector(".last-page")
 var timerEl = document.getElementById("timer")
 
 var tx = timerEl.value;
-tx = 5;
+tx = 10;
 timerEl.textContent = tx;
 
 function startQuiz(){
@@ -40,7 +40,12 @@ function countdown(){
     }, 1000)  
 }
 
-function moveToQuest2(){
+function moveToQuest2(event){
+    var element = event.target;
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        wrongAns();
+    }
     if(question1){
         question1.style.display = 'none';
         welcomeEl.style.display = 'none';
@@ -48,7 +53,16 @@ function moveToQuest2(){
     }
 }
 
-function moveToQuest3(){
+function wrongAns(){
+    tx=tx-5;
+}
+
+function moveToQuest3(event){
+    var element = event.target;
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        wrongAns();
+    }
     if(question2){
         welcomeEl.style.display = 'none';
         question1.style.display = 'none';
@@ -57,7 +71,12 @@ function moveToQuest3(){
     }
 }
 
-function moveToLastPage(){
+function moveToLastPage(event){
+    var element = event.target;
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        wrongAns();
+    }
     if(question3){
         welcomeEl.style.display = 'none';
         question1.style.display = 'none';
