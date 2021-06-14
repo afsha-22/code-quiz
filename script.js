@@ -33,11 +33,11 @@ function startQuiz(){
 
 function countdown(){
     var t = setInterval(function() {
-        tx--;
         timerEl.textContent = tx
         if((tx===0) || (lastPageEl.style.display === 'block')) {
             stopTimer(t);
         }
+        tx--;
     }, 1000)  
 }
 
