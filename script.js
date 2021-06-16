@@ -18,6 +18,11 @@ var q3dBtn = document.querySelector(".q3d")
 var lastPageEl = document.querySelector(".last-page")
 var timerEl = document.getElementById("timer")
 var scoreEl = document.querySelector(".display-score")
+var nameEl = document.querySelector(".name")
+var nameEl2 = document.querySelector(".name1")
+var finalBtn = document.querySelector("#final-button")
+
+// var q1Btn = document.querySelectorAll(".q1")
 
 var tx = timerEl.value;
 tx = 10;
@@ -89,12 +94,17 @@ function moveToLastPage(event){
         question3.style.display = 'none';
         lastPageEl.style.display = 'block';
     }
-    displayScore();
+    displayNameAndScore();
 }
 
-function displayScore(){
+function displayNameAndScore(event){
     scoreEl.textContent = tx;
+    localStorage.setItem("score", tx)
 
+    var nameText = nameEl.value;
+    console.log(nameText);
+    // nameEl2.textContent = nameText;
+    localStorage.setItem("name", nameText)
 }
 
 startBtn.addEventListener("click", startQuiz)
@@ -102,6 +112,7 @@ q1aBtn.addEventListener("click", moveToQuest2)
 q1bBtn.addEventListener("click", moveToQuest2)
 q1cBtn.addEventListener("click", moveToQuest2)
 q1dBtn.addEventListener("click", moveToQuest2)
+// q1Btn.addEventListener("click", displayNameAndScore)
 
 q2aBtn.addEventListener("click", moveToQuest3)
 q2bBtn.addEventListener("click", moveToQuest3)
@@ -112,3 +123,5 @@ q3aBtn.addEventListener("click", moveToLastPage)
 q3bBtn.addEventListener("click", moveToLastPage)
 q3cBtn.addEventListener("click", moveToLastPage)
 q3dBtn.addEventListener("click", moveToLastPage)
+
+finalBtn.addEventListener("click", displayNameAndScore)
