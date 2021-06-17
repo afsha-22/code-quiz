@@ -28,6 +28,18 @@ var tx = timerEl.value;
 tx = 10;
 timerEl.textContent = tx;
 
+// Check this later
+// var arrayScore;
+
+// // if(localStorage.getItem("score"))
+// // {
+// //     tx=localStorage.getItem("score")
+// //     // arrayScore.push(tx)
+// // }
+// // else{
+// //     arrayScore = [];
+// // } 
+
 function startQuiz(){
     countdown();
     if (welcomeEl){
@@ -41,9 +53,10 @@ function countdown(){
         timerEl.textContent = tx
         if((tx===0) || (lastPageEl.style.display === 'block')) {
             stopTimer(t);
+        }else{
+            tx--;
         }
-        tx--;
-    }, 1000)  
+    }, 1000)
 }
 
 function stopTimer(t){
@@ -99,11 +112,17 @@ function moveToLastPage(event){
 
 function displayNameAndScore(event){
     scoreEl.textContent = tx;
+    storage();
+}
+
+function storage(){
+
+    // scoreEl.textContent = tx;
+    // arrayScore.push(tx);
+    // console.log(arrayScore)
     localStorage.setItem("score", tx)
 
     var nameText = nameEl.value;
-    console.log(nameText);
-    // nameEl2.textContent = nameText;
     localStorage.setItem("name", nameText)
 }
 
