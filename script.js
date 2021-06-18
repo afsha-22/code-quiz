@@ -24,7 +24,7 @@ var nameEl2 = document.querySelector(".name1")
 var finalBtn = document.querySelector("#final-button")
 
 var tx = timerEl.value;
-tx = 10;
+tx = 20;
 timerEl.textContent = tx;
 
 // Check this later
@@ -73,7 +73,8 @@ function moveToQuest2(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        wrongAns();
+        console.log("moveToQuest2 wronf ans")
+        var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
         pEl.appendChild(pText)
@@ -81,7 +82,14 @@ function moveToQuest2(event){
         pEl.style.color = "#9E9D98"
         pEl.style.fontSize ="20px"
         question1.appendChild(pEl)
-    } else if(ans==="right"){
+        if(res ==="wrong"){
+            displayNameAndScore();
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+        }
+    } else{
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Right!");
         pEl.style.borderTop = "thick solid #e3e1da";
@@ -89,16 +97,18 @@ function moveToQuest2(event){
         pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question1.appendChild(pEl)
+        var quest = element.getAttribute("data-quest")
+        question(quest);
+        displayNameAndScore();
     }
-    var quest = element.getAttribute("data-quest")
-    question(quest);
 }
 
 function moveToQuest3(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        wrongAns();
+        console.log("moveToQuest3 wronf ans")
+        var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
         pEl.style.borderTop = "thick solid #e3e1da";
@@ -106,7 +116,15 @@ function moveToQuest3(event){
         pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question2.appendChild(pEl)
-    } else if(ans==="right"){
+        if(res ==="wrong"){
+            displayNameAndScore();
+            return
+        } else {
+            console.log("rrr")
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+        }
+    } else { 
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Right!");
         pEl.style.borderTop = "thick solid #e3e1da";
@@ -114,16 +132,17 @@ function moveToQuest3(event){
         pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question2.appendChild(pEl)
+        var quest = element.getAttribute("data-quest")
+        question(quest);
     }
-    var quest = element.getAttribute("data-quest")
-    question(quest);
 }
 
 function moveToLastPage(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        wrongAns();
+        console.log("moveTolastpage wronf ans")
+        var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
         pEl.style.borderTop = "thick solid #e3e1da";
@@ -131,7 +150,14 @@ function moveToLastPage(event){
         pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question3.appendChild(pEl)
-    } else if(ans==="right"){
+        if(res ==="wrong"){
+            displayNameAndScore();
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+        }
+    } else {
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Right!");
         pEl.style.borderTop = "thick solid #e3e1da";
@@ -139,9 +165,9 @@ function moveToLastPage(event){
         pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question3.appendChild(pEl)
+        var quest = element.getAttribute("data-quest")
+        question(quest);
     }
-    var quest = element.getAttribute("data-quest")
-    question(quest);
     displayNameAndScore();
 }
 
@@ -161,15 +187,18 @@ function stopTimer(t){
 }
 
 function wrongAns(){
+    console.log("wrong ans function")
     tx=tx-5;
     if(tx<0){
         tx=0
-        // welcomeEl.style.display = 'none';
-        // question1.style.display = 'none';
-        // question2.style.display = 'none';
-        // question3.style.display = 'none';
-        // lastPageEl.style.display = 'block';
-        // return false;
+        welcomeEl.style.display = 'none';
+        question1.style.display = 'none';
+        question2.style.display = 'none';
+        question3.style.display = 'none';
+        lastPageEl.style.display = 'block';
+        return "wrong";
+    }else {
+        return "right"
     }
 }
 
