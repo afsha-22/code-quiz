@@ -65,7 +65,7 @@ function question(quest){
             question3.style.display = 'none';
             lastPageEl.style.display = 'block';
         }
-    }, 1000)
+    }, 400)
     
 }
 
@@ -75,12 +75,18 @@ function moveToQuest2(event){
     if(ans==="wrong"){
         wrongAns();
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Wrong");
+        var pText = document.createTextNode("Wrong!");
         pEl.appendChild(pText)
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         question1.appendChild(pEl)
     } else if(ans==="right"){
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Right");
+        var pText = document.createTextNode("Right!");
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question1.appendChild(pEl)
     }
@@ -94,12 +100,18 @@ function moveToQuest3(event){
     if(ans==="wrong"){
         wrongAns();
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Wrong");
+        var pText = document.createTextNode("Wrong!");
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question2.appendChild(pEl)
     } else if(ans==="right"){
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Right");
+        var pText = document.createTextNode("Right!");
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question2.appendChild(pEl)
     }
@@ -113,12 +125,18 @@ function moveToLastPage(event){
     if(ans==="wrong"){
         wrongAns();
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Wrong");
+        var pText = document.createTextNode("Wrong!");
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question3.appendChild(pEl)
     } else if(ans==="right"){
         var pEl = document.createElement('p');
-        var pText = document.createTextNode("Right");
+        var pText = document.createTextNode("Right!");
+        pEl.style.borderTop = "thick solid #e3e1da";
+        pEl.style.color = "#9E9D98"
+        pEl.style.fontSize ="20px"
         pEl.appendChild(pText)
         question3.appendChild(pEl)
     }
