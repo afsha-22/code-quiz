@@ -1,13 +1,48 @@
+:root {
+  --yellow: #ffc71e;
+  --border: 8px;
+  --padding: 0 5px;
+}
+
+button {
+  background-color: var(--yellow);
+  border-radius: var(--border);
+  /* padding: var(--padding); */
+  font-size: 15px;
+  opacity: 1;
+}
+
+#score {
+  font-size: 20px;
+  color: var(--yellow);
+  font-weight: bold;
+  border: none;
+  background-color: white;
+}
+
+header {
+  height: 50px;
+}
+
+p {
+  margin: 20px;
+  padding: 10px;
+}
+
 #time {
   float: right;
+  color: var(--yellow);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .container {
-  padding: 0 200px;
+  padding: 0 250px;
 }
 
 h1 {
-  padding: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .first-page,
@@ -36,8 +71,27 @@ h1 {
 ul {
   text-align: left;
   list-style: none;
+  padding: 10px;
+  margin: 10px;
 }
 
 li {
   padding: 5px;
+  opacity: 1;
+}
+
+li :hover {
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 200px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 0 50px;
+  }
 }

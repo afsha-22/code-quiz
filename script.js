@@ -23,8 +23,6 @@ var nameEl = document.querySelector(".name")
 var nameEl2 = document.querySelector(".name1")
 var finalBtn = document.querySelector("#final-button")
 
-// var q1Btn = document.querySelectorAll(".q1")
-
 var tx = timerEl.value;
 tx = 10;
 timerEl.textContent = tx;
@@ -148,16 +146,14 @@ function wrongAns(){
     tx=tx-5;
     if(tx<0){
         tx=0
+        // welcomeEl.style.display = 'none';
+        // question1.style.display = 'none';
+        // question2.style.display = 'none';
+        // question3.style.display = 'none';
+        // lastPageEl.style.display = 'block';
+        // return false;
     }
-    // qresult();
 }
-
-// function qresult(){
-//     var pEl = document.createElement('p');
-//     var pText = document.createTextNode("Wrong");
-//     pEl.appendChild(pText)
-//     containerEl.appendChild(pEl)
-// }
 
 function displayNameAndScore(event){
     scoreEl.textContent = tx;
