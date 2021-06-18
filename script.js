@@ -1,3 +1,4 @@
+containerEl = document.querySelector(".container")
 var startBtn = document.getElementById("start");
 var welcomeEl = document.querySelector(".first-page")
 var question1 = document.querySelector(".quest1")
@@ -48,21 +49,6 @@ function startQuiz(){
     }
 }
 
-function countdown(){
-    var t = setInterval(function() {
-        timerEl.textContent = tx
-        if((tx===0) || (lastPageEl.style.display === 'block')) {
-            stopTimer(t);
-        }else{
-            tx--;
-        }
-    }, 1000)
-}
-
-function stopTimer(t){
-    clearInterval(t)
-}
-
 function moveToQuest2(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
@@ -74,10 +60,6 @@ function moveToQuest2(event){
         welcomeEl.style.display = 'none';
         question2.style.display = 'block';
     }
-}
-
-function wrongAns(){
-    tx=tx-5;
 }
 
 function moveToQuest3(event){
@@ -108,6 +90,36 @@ function moveToLastPage(event){
         lastPageEl.style.display = 'block';
     }
     displayNameAndScore();
+}
+
+function countdown(){
+    var t = setInterval(function() {
+        timerEl.textContent = tx
+        if((tx===0) || (lastPageEl.style.display === 'block')) {
+            stopTimer(t);
+        }else{
+            tx--;
+        }
+    }, 1000)
+}
+
+function stopTimer(t){
+    clearInterval(t)
+}
+
+function wrongAns(){
+    tx=tx-5;
+    if(tx<0){
+        tx=0
+    }
+    qresult();
+}
+
+function qresult(){
+    var pEl = document.createElement('p');
+    var pText = document.createTextNode("Wrong");
+    pEl.appendChild(pText)
+    containerEl.appendChild(pEl)
 }
 
 function displayNameAndScore(event){
