@@ -49,17 +49,36 @@ function startQuiz(){
     }
 }
 
+function question(quest){
+    setTimeout(function(){
+        if(quest==="question1"){
+            question1.style.display = 'none';
+            welcomeEl.style.display = 'none';
+            question2.style.display = 'block';
+        } else if(quest==="question2"){
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'block';
+        } else if(quest==="question3"){
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'none';
+            lastPageEl.style.display = 'block';
+        }
+    }, 1000)
+    
+}
+
 function moveToQuest2(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
         wrongAns();
     }
-    if(question1){
-        question1.style.display = 'none';
-        welcomeEl.style.display = 'none';
-        question2.style.display = 'block';
-    }
+    var quest = element.getAttribute("data-quest")
+    question(quest);
 }
 
 function moveToQuest3(event){
@@ -68,12 +87,8 @@ function moveToQuest3(event){
     if(ans==="wrong"){
         wrongAns();
     }
-    if(question2){
-        welcomeEl.style.display = 'none';
-        question1.style.display = 'none';
-        question2.style.display = 'none';
-        question3.style.display = 'block';
-    }
+    var quest = element.getAttribute("data-quest")
+    question(quest);
 }
 
 function moveToLastPage(event){
@@ -82,13 +97,8 @@ function moveToLastPage(event){
     if(ans==="wrong"){
         wrongAns();
     }
-    if(question3){
-        welcomeEl.style.display = 'none';
-        question1.style.display = 'none';
-        question2.style.display = 'none';
-        question3.style.display = 'none';
-        lastPageEl.style.display = 'block';
-    }
+    var quest = element.getAttribute("data-quest")
+    question(quest);
     displayNameAndScore();
 }
 
