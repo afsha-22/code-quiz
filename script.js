@@ -76,6 +76,15 @@ function moveToQuest2(event){
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
         wrongAns();
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Wrong");
+        pEl.appendChild(pText)
+        question1.appendChild(pEl)
+    } else if(ans==="right"){
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Right");
+        pEl.appendChild(pText)
+        question1.appendChild(pEl)
     }
     var quest = element.getAttribute("data-quest")
     question(quest);
@@ -86,6 +95,15 @@ function moveToQuest3(event){
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
         wrongAns();
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Wrong");
+        pEl.appendChild(pText)
+        question2.appendChild(pEl)
+    } else if(ans==="right"){
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Right");
+        pEl.appendChild(pText)
+        question2.appendChild(pEl)
     }
     var quest = element.getAttribute("data-quest")
     question(quest);
@@ -96,6 +114,15 @@ function moveToLastPage(event){
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
         wrongAns();
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Wrong");
+        pEl.appendChild(pText)
+        question3.appendChild(pEl)
+    } else if(ans==="right"){
+        var pEl = document.createElement('p');
+        var pText = document.createTextNode("Right");
+        pEl.appendChild(pText)
+        question3.appendChild(pEl)
     }
     var quest = element.getAttribute("data-quest")
     question(quest);
@@ -122,15 +149,15 @@ function wrongAns(){
     if(tx<0){
         tx=0
     }
-    qresult();
+    // qresult();
 }
 
-function qresult(){
-    var pEl = document.createElement('p');
-    var pText = document.createTextNode("Wrong");
-    pEl.appendChild(pText)
-    containerEl.appendChild(pEl)
-}
+// function qresult(){
+//     var pEl = document.createElement('p');
+//     var pText = document.createTextNode("Wrong");
+//     pEl.appendChild(pText)
+//     containerEl.appendChild(pEl)
+// }
 
 function displayNameAndScore(event){
     scoreEl.textContent = tx;
