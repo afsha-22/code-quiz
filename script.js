@@ -43,14 +43,13 @@ if(localStorage.getItem("score")){
     console.log("Array Score if local storage IS empty and after initialise "+arrayScore)
     // arrayScore = [""];
 }
-// if(localStorage.getItem("score"))
-// {
-//     tx=localStorage.getItem("score")
-//     arrayScore.push(tx)
-// }
-// else{
-//     arrayScore = [];
-// } 
+
+if(localStorage.getItem("name")){
+    var arrayName = [];
+    arrayName.push(localStorage.getItem("name"))
+} else {
+    var arrayName = [];
+}
 
 function startQuiz(){
     countdown();
@@ -237,13 +236,8 @@ function storage(){
     
     //Need to fix this
     var nameText = nameEl.value;
-    if(!nameText){
-        console.log("i am here")
-        alert("Please enter the name!")
-        return;
-    }else {
-        localStorage.setItem("name", nameText)
-    }
+    arrayName.push(nameText);
+    localStorage.setItem("name", nameText)
 }
 
 startBtn.addEventListener("click", startQuiz)
