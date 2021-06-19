@@ -27,17 +27,30 @@ var tx = timerEl.value;
 tx = 20;
 timerEl.textContent = tx;
 
-// Check this later
-// var arrayScore;
 
-// // if(localStorage.getItem("score"))
-// // {
-// //     tx=localStorage.getItem("score")
-// //     // arrayScore.push(tx)
-// // }
-// // else{
-// //     arrayScore = [];
-// // } 
+// Check this later
+if(localStorage.getItem("score")){
+    // arrayScore = [""];
+    console.log("In localStorage if condition "+localStorage.getItem("score"));
+    console.log("Array Score if local storage not emply "+arrayScore)
+    var arrayScore = [];
+    arrayScore.push(localStorage.getItem("score"))
+    console.log("Array Score if local storage not empty and after push "+arrayScore)
+    // console.log('33333 '+arrayScore)
+} else{
+    console.log("Array Score if local storage IS emply "+arrayScore)
+    var arrayScore = [];
+    console.log("Array Score if local storage IS empty and after initialise "+arrayScore)
+    // arrayScore = [""];
+}
+// if(localStorage.getItem("score"))
+// {
+//     tx=localStorage.getItem("score")
+//     arrayScore.push(tx)
+// }
+// else{
+//     arrayScore = [];
+// } 
 
 function startQuiz(){
     countdown();
@@ -99,7 +112,9 @@ function moveToQuest2(event){
         question1.appendChild(pEl)
         var quest = element.getAttribute("data-quest")
         question(quest);
-        displayNameAndScore();
+        scoreEl.textContent = tx;
+
+        // displayNameAndScore();
     }
 }
 
@@ -134,6 +149,8 @@ function moveToQuest3(event){
         question2.appendChild(pEl)
         var quest = element.getAttribute("data-quest")
         question(quest);
+        scoreEl.textContent = tx;
+
     }
 }
 
@@ -167,8 +184,10 @@ function moveToLastPage(event){
         question3.appendChild(pEl)
         var quest = element.getAttribute("data-quest")
         question(quest);
+        scoreEl.textContent = tx;
+
     }
-    displayNameAndScore();
+    //displayNameAndScore();
 }
 
 function countdown(){
@@ -202,17 +221,19 @@ function wrongAns(){
     }
 }
 
-function displayNameAndScore(event){
+function displayNameAndScore(){
     scoreEl.textContent = tx;
+    console.log(arrayScore+ " from display")
     storage();
 }
 
 function storage(){
-
+    console.log("First line of storage function before PUSH "+arrayScore)
     // scoreEl.textContent = tx;
-    // arrayScore.push(tx);
-    // console.log(arrayScore)
-    localStorage.setItem("score", tx)
+    arrayScore.push(tx);
+    console.log("Array score after push in Storage "+arrayScore)
+
+    localStorage.setItem("score", arrayScore)
 
     var nameText = nameEl.value;
     localStorage.setItem("name", nameText)

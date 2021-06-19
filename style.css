@@ -20,6 +20,11 @@ button {
   background-color: white;
 }
 
+#score a {
+  color: var(--yellow);
+  text-decoration: none;
+}
+
 header {
   height: 50px;
 }
@@ -66,6 +71,16 @@ h1 {
 .last-page {
   text-align: center;
   display: none;
+}
+
+#final-button a {
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 ul {
