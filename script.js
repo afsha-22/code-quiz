@@ -237,7 +237,7 @@ function storage(){
     //Need to fix this
     var nameText = nameEl.value;
     arrayName.push(nameText);
-    localStorage.setItem("name", nameText)
+    localStorage.setItem("name", arrayName)
 }
 
 startBtn.addEventListener("click", startQuiz)
