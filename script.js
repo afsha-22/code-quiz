@@ -234,9 +234,16 @@ function storage(){
     console.log("Array score after push in Storage "+arrayScore)
 
     localStorage.setItem("score", arrayScore)
-
+    
+    //Need to fix this
     var nameText = nameEl.value;
-    localStorage.setItem("name", nameText)
+    if(!nameText){
+        console.log("i am here")
+        alert("Please enter the name!")
+        return;
+    }else {
+        localStorage.setItem("name", nameText)
+    }
 }
 
 startBtn.addEventListener("click", startQuiz)

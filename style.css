@@ -83,6 +83,15 @@ a {
   color: black;
 }
 
+.new {
+  display: flex;
+  justify-content: center;
+}
+
+.new button {
+  margin: 5px;
+}
+
 ul {
   text-align: left;
   list-style: none;
