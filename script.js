@@ -27,8 +27,13 @@ var tx = timerEl.value;
 tx = 20;
 timerEl.textContent = tx;
 
+// console.log(localStorage.getItem("score"))
+// var trial = localStorage.getItem("name");
+// console.log(trial)
+// var split = trial.split(',');
+// console.log(split +" split")
+// console.log(split[1])
 
-// Check this later
 if(localStorage.getItem("score")){
     // arrayScore = [""];
     // console.log("In localStorage if condition "+localStorage.getItem("score"));
@@ -45,8 +50,11 @@ if(localStorage.getItem("score")){
 }
 
 if(localStorage.getItem("name")){
-    var arrayName = [];
-    arrayName.push(localStorage.getItem("name"))
+    var trial = localStorage.getItem("name");
+    var arrayName = trial.split(',');
+    console.log(arrayName[0])
+    // var arrayName = [];
+    // arrayName.push(localStorage.getItem("name"))
 } else {
     var arrayName = [];
 }
