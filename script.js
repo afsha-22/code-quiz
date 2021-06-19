@@ -255,7 +255,16 @@ function wrongAns(){
 }
 
 function displayNameAndScore(){
+    var nameText = nameEl.value;
+    if(nameText===""||nameText===" ")
+    {
+        console.log("name is not entered")
+        alert("Please enter the name")
+        // lastPageEl.style.display = 'block';
+        return;
+    }
     scoreEl.textContent = tx;
+    window.location.replace("highScore.html");
     // console.log(arrayScore+ " from display")
     storage();
 }
@@ -268,7 +277,6 @@ function storage(){
 
     localStorage.setItem("score", arrayScore)
     
-    //Need to fix this
     var nameText = nameEl.value;
     arrayName.push(nameText);
     localStorage.setItem("name", arrayName)
