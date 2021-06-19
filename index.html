@@ -9,13 +9,13 @@
     <body>
         <header>
             <div>
-                <button id="score"><a href="highScore.html">View Highscore</a></button>
+                <button id="high-score"><a href="highScore.html">View Highscore</a></button>
                 <div id="time">Time: <span id="timer">0</span></div>
             </div>
         </header>
         <main>
             <div class = "container">
-                <div class="first-page">
+                <div class="welcome-page">
                     <h1>Welcome to coding quiz</h1>
                     <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalise your score/time by 5 seconds!</p>
                     <button id="start">Start Quiz</button>
@@ -24,30 +24,50 @@
                 <div class = "quest1">
                     <h1>How do you round the number 7.25, to the nearest integer?</h1>
                     <ul>
-                        <li><button class = "q1a" data-quest="question1" data-answer="right">A. Math.round(7.25)</button></li>
-                        <li><button class = "q1b" data-quest="question1" data-answer="wrong">B. Math.rnd(7.25)</button></li>
-                        <li><button class = "q1c" data-quest="question1" data-answer="wrong">C. rnd(7.25)</button></li>
-                        <li><button class = "q1d" data-quest="question1" data-answer="wrong">D. round(7.25)</button></li>
+                        <li><button class = "q1" data-quest="question1" data-answer="right">A. Math.round(7.25)</button></li>
+                        <li><button class = "q1" data-quest="question1" data-answer="wrong">B. Math.rnd(7.25)</button></li>
+                        <li><button class = "q1" data-quest="question1" data-answer="wrong">C. rnd(7.25)</button></li>
+                        <li><button class = "q1" data-quest="question1" data-answer="wrong">D. round(7.25)</button></li>
                     </ul>
                 </div>
 
                 <div class = "quest2">
                     <h1>How do you find the number with the highest value of x and y?</h1>
                     <ul>
-                        <li><button class = "q2a" data-quest="question2" data-answer="wrong">A. ceil(x, y)</button></li>
-                        <li><button class = "q2b" data-quest="question2" data-answer="right">B. Math.ceil(x, y)</button></li>
-                        <li><button class = "q2c" data-quest="question2" data-answer="wrong">C. top(x, y)</button></li>
-                        <li><button class = "q2d" data-quest="question2" data-answer="wrong">D. Math.max(x, y)</button></li>
+                        <li><button class = "q2" data-quest="question2" data-answer="wrong">A. ceil(x, y)</button></li>
+                        <li><button class = "q2" data-quest="question2" data-answer="wrong">B. Math.ceil(x, y)</button></li>
+                        <li><button class = "q2" data-quest="question2" data-answer="right">C. top(x, y)</button></li>
+                        <li><button class = "q2" data-quest="question2" data-answer="wrong">D. Math.max(x, y)</button></li>
                     </ul>
                 </div>
 
                 <div class = "quest3">
                     <h1>How can you detect the client's browser name?</h1>
                     <ul>
-                        <li><button class = "q3a" data-quest="question3" data-answer="wrong">A. browser.name</button></li>
-                        <li><button class = "q3b" data-quest="question3" data-answer="wrong">B. client.navName</button></li>
-                        <li><button class = "q3c" data-quest="question3" data-answer="right">C. navigator.appName</button></li>
-                        <li><button class = "q3d" data-quest="question3" data-answer="wrong">D. none of the above</button></li>
+                        <li><button class = "q3" data-quest="question3" data-answer="wrong">A. browser.name</button></li>
+                        <li><button class = "q3" data-quest="question3" data-answer="wrong">B. client.navName</button></li>
+                        <li><button class = "q3" data-quest="question3" data-answer="right">C. navigator.appName</button></li>
+                        <li><button class = "q3" data-quest="question3" data-answer="wrong">D. None of the above</button></li>
+                    </ul>
+                </div>
+
+                <div class = "quest4">
+                    <h1>Which of the following statements will show a message as well as ask for user input in a popup?</h1>
+                    <ul>
+                        <li><button class = "q4" data-quest="question4" data-answer="wrong">A. alert()</button></li>
+                        <li><button class = "q4" data-quest="question4" data-answer="right">B. prompt()</button></li>
+                        <li><button class = "q4" data-quest="question4" data-answer="wrong">C. confirm()</button></li>
+                        <li><button class = "q4" data-quest="question4" data-answer="wrong">D. message()</button></li>
+                    </ul>
+                </div>
+
+                <div class = "quest5">
+                    <h1>You are a web designer in your company and need to create a JavaScript project for form validation. What are the advantages that JavaScript provides for forms?</h1>
+                    <ul>
+                        <li><button class = "q5" data-quest="question5" data-answer="wrong">A. Bandwidth conservation</button></li>
+                        <li><button class = "q5" data-quest="question5" data-answer="wrong">B. Form validation</button></li>
+                        <li><button class = "q5" data-quest="question5" data-answer="wrong">C. Increased user satisfaction</button></li>
+                        <li><button class = "q5" data-quest="question5" data-answer="right">D. All of the above</button></li>
                     </ul>
                 </div>
 

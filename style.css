@@ -4,15 +4,11 @@
   --padding: 0 5px;
 }
 
-button {
-  background-color: var(--yellow);
-  border-radius: var(--border);
-  /* padding: var(--padding); */
-  font-size: 15px;
-  opacity: 1;
+header {
+  height: 50px;
 }
 
-#score {
+#high-score {
   font-size: 20px;
   color: var(--yellow);
   font-weight: bold;
@@ -20,18 +16,9 @@ button {
   background-color: white;
 }
 
-#score a {
+#high-score a {
   color: var(--yellow);
   text-decoration: none;
-}
-
-header {
-  height: 50px;
-}
-
-p {
-  margin: 5px;
-  padding: 5px;
 }
 
 #time {
@@ -45,36 +32,35 @@ p {
   padding: 0 250px;
 }
 
-h1 {
-  padding: 10px;
-  margin: 10px;
-}
-
-.first-page,
+.welcome-page,
 .high-score-page {
   text-align: center;
   display: block;
 }
 
-.new-element {
-  text-align: center;
-}
-
-.first-page p {
+.welcome-page p {
   margin: 20px;
   padding: 10px;
 }
 
-.quest1 {
+.quest1,
+.quest2,
+.quest3,
+.quest4,
+.quest5 {
   display: none;
 }
 
-.quest2 {
-  display: none;
+h1 {
+  padding: 10px;
+  margin: 10px;
 }
 
-.quest3 {
-  display: none;
+button {
+  background-color: var(--yellow);
+  border-radius: var(--border);
+  font-size: 15px;
+  opacity: 1;
 }
 
 .last-page {
@@ -82,23 +68,14 @@ h1 {
   display: none;
 }
 
-#final-button a {
-  text-decoration: none;
-  color: black;
+p {
+  margin: 5px;
+  padding: 5px;
 }
 
 a {
   text-decoration: none;
   color: black;
-}
-
-.new {
-  display: flex;
-  justify-content: center;
-}
-
-.new button {
-  margin: 5px;
 }
 
 ul {
@@ -115,6 +92,19 @@ li {
 
 li :hover {
   opacity: 0.75;
+}
+
+.new-element {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  margin: 5px;
 }
 
 @media screen and (max-width: 768px) {

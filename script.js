@@ -1,32 +1,27 @@
-containerEl = document.querySelector(".container")
 var startBtn = document.getElementById("start");
-var welcomeEl = document.querySelector(".first-page")
+var welcomeEl = document.querySelector(".welcome-page")
 var question1 = document.querySelector(".quest1")
-var q1aBtn = document.querySelector(".q1a")
-var q1bBtn = document.querySelector(".q1b")
-var q1cBtn = document.querySelector(".q1c")
-var q1dBtn = document.querySelector(".q1d")
+var q1Btn = document.querySelectorAll(".q1")
 var question2 = document.querySelector(".quest2")
-var q2aBtn = document.querySelector(".q2a")
-var q2bBtn = document.querySelector(".q2b")
-var q2cBtn = document.querySelector(".q2c")
-var q2dBtn = document.querySelector(".q2d")
+var q2Btn = document.querySelectorAll(".q2")
 var question3 = document.querySelector(".quest3")
-var q3aBtn = document.querySelector(".q3a")
-var q3bBtn = document.querySelector(".q3b")
-var q3cBtn = document.querySelector(".q3c")
-var q3dBtn = document.querySelector(".q3d")
+var q3Btn = document.querySelectorAll(".q3")
+var question4 = document.querySelector(".quest4")
+var q4Btn = document.querySelectorAll(".q4")
+var question5 = document.querySelector(".quest5")
+var q5Btn = document.querySelectorAll(".q5")
 var lastPageEl = document.querySelector(".last-page")
 var timerEl = document.getElementById("timer")
 var scoreEl = document.querySelector(".display-score")
 var nameEl = document.querySelector(".name")
-var nameEl2 = document.querySelector(".name1")
 var finalBtn = document.querySelector("#final-button")
 
-var tx = timerEl.value;
-tx = 20;
-timerEl.textContent = tx;
+//Defining time as global variable
+var time = timerEl.value;
+time = 50;
+timerEl.textContent = time;
 
+//Before the game starts, checking if any score is stored in localstorage, if yes, save it in arrayScore
 if(localStorage.getItem("score")){
     var arrayScore = [];
     arrayScore.push(localStorage.getItem("score"))
@@ -34,6 +29,7 @@ if(localStorage.getItem("score")){
     var arrayScore = [];
 }
 
+//Before the game starts, checking if any name is stored in localstorage, if yes, save it in arrayScore
 if(localStorage.getItem("name")){
     var trial = localStorage.getItem("name");
     var arrayName = trial.split(',');
@@ -41,6 +37,7 @@ if(localStorage.getItem("name")){
     var arrayName = [];
 }
 
+//When quiz starts, begin the timer and display question1
 function startQuiz(){
     countdown();
     if (welcomeEl){
@@ -49,6 +46,176 @@ function startQuiz(){
     }
 }
 
+//Setting time interval with condition
+function countdown(){
+    var t = setInterval(function() {
+        timerEl.textContent = time
+        if((time===0) || (lastPageEl.style.display === 'block')) {
+            stopTimer(t);
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'none';
+            question4.style.display = 'none';
+            question5.style.display = 'none';
+            lastPageEl.style.display = 'block';
+            scoreEl.textContent = time;
+        }else{
+            time--;
+        }
+    }, 1000)
+}
+
+//Clearing time interval
+function stopTimer(t){
+    clearInterval(t)
+}
+
+//Display question1 and logic when answer is selected
+function moveToQuest2(event){
+    var element = event.target;
+    var quest = element.getAttribute("data-quest")
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        var res = wrongAns();
+        printWrong(quest);
+        if(res ==="wrong"){
+            scoreEl.textContent = time;
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+            scoreEl.textContent = time;
+        }
+    } else{
+        printRight(quest);
+    }
+}
+
+//Display question2 and logic when answer is selected
+function moveToQuest3(event){
+    var element = event.target;
+    var quest = element.getAttribute("data-quest")
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        var res = wrongAns();
+        printWrong(quest);
+        if(res ==="wrong"){
+            scoreEl.textContent = time;
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+            scoreEl.textContent = time;
+        }
+    } else {
+        printRight(quest);
+    }
+}
+
+//Display question3 and logic when answer is selected
+function moveToQuest4(event){
+    var element = event.target;
+    var quest = element.getAttribute("data-quest")
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        var res = wrongAns();
+        printWrong(quest);
+        if(res ==="wrong"){
+            scoreEl.textContent = time;
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+            scoreEl.textContent = time;
+        }
+    } else {
+        printRight(quest);
+    } 
+}
+
+//Display question4 and logic when answer is selected
+function moveToQuest5(event){
+    var element = event.target;
+    var quest = element.getAttribute("data-quest")
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        var res = wrongAns();
+        printWrong(quest);
+        if(res ==="wrong"){
+            scoreEl.textContent = time;
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+            scoreEl.textContent = time;
+        }
+    } else {
+        printRight(quest);
+    } 
+}
+
+//Display question5 and logic when answer is selected
+function moveToLastPage(event){
+    var element = event.target;
+    var quest = element.getAttribute("data-quest")
+    var ans = element.getAttribute("data-answer")
+    if(ans==="wrong"){
+        var res = wrongAns();
+        printWrong(quest);
+        if(res ==="wrong"){
+            scoreEl.textContent = time;
+            return
+        } else {
+            var quest = element.getAttribute("data-quest")
+            question(quest);
+            scoreEl.textContent = time;
+        }
+    } else {
+        printRight(quest);
+    } 
+}
+
+//Logic to reduce 5secs from the timer when wrong answer is selected
+function wrongAns(){
+    time=time-5;
+    if(time<0){
+        time=0
+        welcomeEl.style.display = 'none';
+        question1.style.display = 'none';
+        question2.style.display = 'none';
+        question3.style.display = 'none';
+        question4.style.display = 'none';
+        question5.style.display = 'none';
+        lastPageEl.style.display = 'block';
+        return "wrong";
+    }else {
+        return "right"
+    }
+}
+
+//Adding new element below the 4 options to display "Wrong!" when wrong answer is selected
+function printWrong(quest){
+    var pEl = document.createElement('p');
+    var pText = document.createTextNode("Wrong!");
+    pEl.appendChild(pText)
+    pEl.style.borderTop = "thick solid #e3e1da";
+    pEl.style.color = "#9E9D98"
+    pEl.style.fontSize ="20px"
+    if(quest==="question1"){
+        question1.appendChild(pEl)
+    } else if(quest==="question2"){
+        question2.appendChild(pEl)
+    } else if(quest==="question3"){
+        question3.appendChild(pEl)
+    } else if(quest==="question4"){
+        question4.appendChild(pEl)
+    } else if(quest==="question5"){
+        question5.appendChild(pEl)
+    }
+}
+
+//Logic to display next question when an option is selected for previous question
 function question(quest){
     setTimeout(function(){
         if(quest==="question1"){
@@ -65,14 +232,28 @@ function question(quest){
             question1.style.display = 'none';
             question2.style.display = 'none';
             question3.style.display = 'none';
+            question4.style.display = 'block';
+        } else if(quest==="question4"){
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'none';
+            question4.style.display = 'none';
+            question5.style.display = 'block';
+        } else if(quest==="question5"){
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'none';
+            question4.style.display = 'none';
+            question5.style.display = 'none';
             lastPageEl.style.display = 'block';
         }
-    }, 400)
-    
+    }, 300)  
 }
 
+//Adding new element below the 4 options to display "Right!" when right answer is selected
 function printRight(quest){
-    console.log(quest +"inside the function")
     var pEl = document.createElement('p');
     var pText = document.createTextNode("Right!");
     pEl.style.borderTop = "thick solid #e3e1da";
@@ -85,139 +266,32 @@ function printRight(quest){
         question2.appendChild(pEl)
     } else if(quest==="question3"){
         question3.appendChild(pEl)
+    } else if(quest==="question4"){
+        question4.appendChild(pEl)
+    } else if(quest==="question5"){
+        question5.appendChild(pEl)
     }
     question(quest);
-    scoreEl.textContent = tx;
+    scoreEl.textContent = time;
 }
 
-function printWrong(quest){
-    var pEl = document.createElement('p');
-    var pText = document.createTextNode("Wrong!");
-    pEl.appendChild(pText)
-    pEl.style.borderTop = "thick solid #e3e1da";
-    pEl.style.color = "#9E9D98"
-    pEl.style.fontSize ="20px"
-    if(quest==="question1"){
-        question1.appendChild(pEl)
-    } else if(quest==="question2"){
-        question2.appendChild(pEl)
-    } else if(quest==="question3"){
-        question3.appendChild(pEl)
-    }
-}
-
-function moveToQuest2(event){
-    var element = event.target;
-    var quest = element.getAttribute("data-quest")
-    var ans = element.getAttribute("data-answer")
-    if(ans==="wrong"){
-        var res = wrongAns();
-        printWrong(quest);
-        if(res ==="wrong"){
-            scoreEl.textContent = tx;
-            return
-        } else {
-            var quest = element.getAttribute("data-quest")
-            question(quest);
-            scoreEl.textContent = tx;
-        }
-    } else{
-        printRight(quest);
-    }
-}
-
-function moveToQuest3(event){
-    var element = event.target;
-    var quest = element.getAttribute("data-quest")
-    var ans = element.getAttribute("data-answer")
-    if(ans==="wrong"){
-        var res = wrongAns();
-        printWrong(quest);
-        if(res ==="wrong"){
-            scoreEl.textContent = tx;
-            return
-        } else {
-            var quest = element.getAttribute("data-quest")
-            question(quest);
-            scoreEl.textContent = tx;
-        }
-    } else {
-        printRight(quest);
-    }
-}
-
-function moveToLastPage(event){
-    var element = event.target;
-    var quest = element.getAttribute("data-quest")
-    var ans = element.getAttribute("data-answer")
-    if(ans==="wrong"){
-        var res = wrongAns();
-        printWrong(quest);
-        if(res ==="wrong"){
-            scoreEl.textContent = tx;
-            return
-        } else {
-            var quest = element.getAttribute("data-quest")
-            question(quest);
-            scoreEl.textContent = tx;
-        }
-    } else {
-        printRight(quest);
-    }
-    
-}
-
-function countdown(){
-    var t = setInterval(function() {
-        timerEl.textContent = tx
-        if((tx===0) || (lastPageEl.style.display === 'block')) {
-            stopTimer(t);
-            welcomeEl.style.display = 'none';
-            question1.style.display = 'none';
-            question2.style.display = 'none';
-            question3.style.display = 'none';
-            lastPageEl.style.display = 'block';
-            scoreEl.textContent = tx;
-        }else{
-            tx--;
-        }
-    }, 1000)
-}
-
-function stopTimer(t){
-    clearInterval(t)
-}
-
-function wrongAns(){
-    tx=tx-5;
-    if(tx<0){
-        tx=0
-        welcomeEl.style.display = 'none';
-        question1.style.display = 'none';
-        question2.style.display = 'none';
-        question3.style.display = 'none';
-        lastPageEl.style.display = 'block';
-        return "wrong";
-    }else {
-        return "right"
-    }
-}
-
+//Logic when user enters the name on the last page
 function displayNameAndScore(){
     var nameText = nameEl.value;
     if(nameText===""||nameText===" ")
     {
         alert("Please enter the name")
         return;
+    }else {
+        scoreEl.textContent = time;
+        window.location.replace("highScore.html");
+        storage();
     }
-    scoreEl.textContent = tx;
-    window.location.replace("highScore.html");
-    storage();
 }
 
+//Setting local storage
 function storage(){
-    arrayScore.push(tx);
-
+    arrayScore.push(time);
     localStorage.setItem("score", arrayScore)
     
     var nameText = nameEl.value;
@@ -226,19 +300,25 @@ function storage(){
 }
 
 startBtn.addEventListener("click", startQuiz)
-q1aBtn.addEventListener("click", moveToQuest2)
-q1bBtn.addEventListener("click", moveToQuest2)
-q1cBtn.addEventListener("click", moveToQuest2)
-q1dBtn.addEventListener("click", moveToQuest2)
 
-q2aBtn.addEventListener("click", moveToQuest3)
-q2bBtn.addEventListener("click", moveToQuest3)
-q2cBtn.addEventListener("click", moveToQuest3)
-q2dBtn.addEventListener("click", moveToQuest3)
+q1Btn.forEach(item => {
+    item.addEventListener('click', moveToQuest2)
+})
 
-q3aBtn.addEventListener("click", moveToLastPage)
-q3bBtn.addEventListener("click", moveToLastPage)
-q3cBtn.addEventListener("click", moveToLastPage)
-q3dBtn.addEventListener("click", moveToLastPage)
+q2Btn.forEach(item => {
+    item.addEventListener('click', moveToQuest3)
+})
+
+q3Btn.forEach(item => {
+    item.addEventListener('click', moveToQuest4)
+})
+
+q4Btn.forEach(item => {
+    item.addEventListener('click', moveToQuest5)
+})
+
+q5Btn.forEach(item => {
+    item.addEventListener('click', moveToLastPage)
+})
 
 finalBtn.addEventListener("click", displayNameAndScore)
