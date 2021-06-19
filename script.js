@@ -27,34 +27,16 @@ var tx = timerEl.value;
 tx = 20;
 timerEl.textContent = tx;
 
-// console.log(localStorage.getItem("score"))
-// var trial = localStorage.getItem("name");
-// console.log(trial)
-// var split = trial.split(',');
-// console.log(split +" split")
-// console.log(split[1])
-
 if(localStorage.getItem("score")){
-    // arrayScore = [""];
-    // console.log("In localStorage if condition "+localStorage.getItem("score"));
-    // console.log("Array Score if local storage not emply "+arrayScore)
     var arrayScore = [];
     arrayScore.push(localStorage.getItem("score"))
-    // console.log("Array Score if local storage not empty and after push "+arrayScore)
-    // console.log('33333 '+arrayScore)
 } else{
-    console.log("Array Score if local storage IS emply "+arrayScore)
     var arrayScore = [];
-    console.log("Array Score if local storage IS empty and after initialise "+arrayScore)
-    // arrayScore = [""];
 }
 
 if(localStorage.getItem("name")){
     var trial = localStorage.getItem("name");
     var arrayName = trial.split(',');
-    console.log(arrayName[0])
-    // var arrayName = [];
-    // arrayName.push(localStorage.getItem("name"))
 } else {
     var arrayName = [];
 }
@@ -93,8 +75,6 @@ function moveToQuest2(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        console.log("Question1: wrong ans")
-        console.log(tx)
         var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
@@ -104,17 +84,12 @@ function moveToQuest2(event){
         pEl.style.fontSize ="20px"
         question1.appendChild(pEl)
         if(res ==="wrong"){
-            console.log("Question1 wrong ans and tx<0")
-            console.log(tx)
             scoreEl.textContent = tx;
-            // displayNameAndScore();
             return
         } else {
-            console.log("Question1 wrong ans but tx>0")
             var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = tx;
-            // displayNameAndScore();
         }
     } else{
         var pEl = document.createElement('p');
@@ -127,7 +102,6 @@ function moveToQuest2(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        // displayNameAndScore();
     }
 }
 
@@ -135,8 +109,6 @@ function moveToQuest3(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        console.log("question2 wrong ans")
-        console.log(tx)
         var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
@@ -146,17 +118,12 @@ function moveToQuest3(event){
         pEl.appendChild(pText)
         question2.appendChild(pEl)
         if(res ==="wrong"){
-            console.log("Question2 wrong ans and tx<0")
-            console.log(tx)
             scoreEl.textContent = tx;
-            // displayNameAndScore();
             return
         } else {
-            console.log("Question2 wrong ans but tx>0")
             var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = tx;
-            // displayNameAndScore();
         }
     } else { 
         var pEl = document.createElement('p');
@@ -169,7 +136,6 @@ function moveToQuest3(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        // displayNameAndScore();
     }
 }
 
@@ -177,8 +143,6 @@ function moveToLastPage(event){
     var element = event.target;
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
-        console.log("Question3 wrong ans")
-        console.log(tx)
         var res = wrongAns();
         var pEl = document.createElement('p');
         var pText = document.createTextNode("Wrong!");
@@ -188,18 +152,12 @@ function moveToLastPage(event){
         pEl.appendChild(pText)
         question3.appendChild(pEl)
         if(res ==="wrong"){
-            console.log("Question3 wrong ans and tx<0")
-            console.log(tx)
             scoreEl.textContent = tx;
-            // displayNameAndScore();
             return
         } else {
-            console.log("Question3 wrong ans but tx>0")
-            console.log(tx)
             var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = tx;
-            // displayNameAndScore();
         }
     } else {
         var pEl = document.createElement('p');
@@ -212,7 +170,6 @@ function moveToLastPage(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        // displayNameAndScore();
     }
     
 }
@@ -239,7 +196,6 @@ function stopTimer(t){
 }
 
 function wrongAns(){
-    console.log("wrong ans function"+tx)
     tx=tx-5;
     if(tx<0){
         tx=0
@@ -258,22 +214,16 @@ function displayNameAndScore(){
     var nameText = nameEl.value;
     if(nameText===""||nameText===" ")
     {
-        console.log("name is not entered")
         alert("Please enter the name")
-        // lastPageEl.style.display = 'block';
         return;
     }
     scoreEl.textContent = tx;
     window.location.replace("highScore.html");
-    // console.log(arrayScore+ " from display")
     storage();
 }
 
 function storage(){
-    // console.log("First line of storage function before PUSH "+arrayScore)
-    // scoreEl.textContent = tx;
     arrayScore.push(tx);
-    // console.log("Array score after push in Storage "+arrayScore)
 
     localStorage.setItem("score", arrayScore)
     
@@ -287,7 +237,6 @@ q1aBtn.addEventListener("click", moveToQuest2)
 q1bBtn.addEventListener("click", moveToQuest2)
 q1cBtn.addEventListener("click", moveToQuest2)
 q1dBtn.addEventListener("click", moveToQuest2)
-// q1Btn.addEventListener("click", displayNameAndScore)
 
 q2aBtn.addEventListener("click", moveToQuest3)
 q2bBtn.addEventListener("click", moveToQuest3)
