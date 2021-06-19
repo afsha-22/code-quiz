@@ -30,8 +30,8 @@ header {
 }
 
 p {
-  margin: 20px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 #time {
@@ -54,6 +54,15 @@ h1 {
 .high-score-page {
   text-align: center;
   display: block;
+}
+
+.new-element {
+  text-align: center;
+}
+
+.first-page p {
+  margin: 20px;
+  padding: 10px;
 }
 
 .quest1 {

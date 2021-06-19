@@ -98,13 +98,15 @@ function moveToQuest2(event){
         if(res ==="wrong"){
             console.log("Question1 wrong ans and tx<0")
             console.log(tx)
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
             return
         } else {
             console.log("Question1 wrong ans but tx>0")
             var quest = element.getAttribute("data-quest")
             question(quest);
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
         }
     } else{
         var pEl = document.createElement('p');
@@ -117,7 +119,7 @@ function moveToQuest2(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        displayNameAndScore();
+        // displayNameAndScore();
     }
 }
 
@@ -138,13 +140,15 @@ function moveToQuest3(event){
         if(res ==="wrong"){
             console.log("Question2 wrong ans and tx<0")
             console.log(tx)
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
             return
         } else {
             console.log("Question2 wrong ans but tx>0")
             var quest = element.getAttribute("data-quest")
             question(quest);
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
         }
     } else { 
         var pEl = document.createElement('p');
@@ -157,7 +161,7 @@ function moveToQuest3(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        displayNameAndScore();
+        // displayNameAndScore();
     }
 }
 
@@ -178,14 +182,16 @@ function moveToLastPage(event){
         if(res ==="wrong"){
             console.log("Question3 wrong ans and tx<0")
             console.log(tx)
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
             return
         } else {
             console.log("Question3 wrong ans but tx>0")
             console.log(tx)
             var quest = element.getAttribute("data-quest")
             question(quest);
-            displayNameAndScore();
+            scoreEl.textContent = tx;
+            // displayNameAndScore();
         }
     } else {
         var pEl = document.createElement('p');
@@ -198,7 +204,7 @@ function moveToLastPage(event){
         var quest = element.getAttribute("data-quest")
         question(quest);
         scoreEl.textContent = tx;
-        displayNameAndScore();
+        // displayNameAndScore();
     }
     
 }
