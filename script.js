@@ -222,6 +222,12 @@ function countdown(){
         timerEl.textContent = tx
         if((tx===0) || (lastPageEl.style.display === 'block')) {
             stopTimer(t);
+            welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
+            question2.style.display = 'none';
+            question3.style.display = 'none';
+            lastPageEl.style.display = 'block';
+            scoreEl.textContent = tx;
         }else{
             tx--;
         }
