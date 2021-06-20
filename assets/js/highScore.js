@@ -18,6 +18,9 @@ for(var i=0;i<newArrayScore.length;i++){
     var index = i+1;
     var s1 = document.createElement('p')
     s1.textContent =  index + ". " +arrayName[i]+ ": " +newArrayScore[i];
+    if(index % 2 !== 0){
+        s1.style.backgroundColor="#fce9ae";
+    }
     newEl.appendChild(s1)
 }
 
