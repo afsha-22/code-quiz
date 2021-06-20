@@ -83,7 +83,6 @@ function moveToQuest2(event){
             scoreEl.textContent = time;
             return
         } else {
-            var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = time;
         }
@@ -104,7 +103,6 @@ function moveToQuest3(event){
             scoreEl.textContent = time;
             return
         } else {
-            var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = time;
         }
@@ -125,7 +123,6 @@ function moveToQuest4(event){
             scoreEl.textContent = time;
             return
         } else {
-            var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = time;
         }
@@ -146,7 +143,6 @@ function moveToQuest5(event){
             scoreEl.textContent = time;
             return
         } else {
-            var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = time;
         }
@@ -167,7 +163,6 @@ function moveToLastPage(event){
             scoreEl.textContent = time;
             return
         } else {
-            var quest = element.getAttribute("data-quest")
             question(quest);
             scoreEl.textContent = time;
         }
@@ -249,7 +244,7 @@ function question(quest){
             question5.style.display = 'none';
             lastPageEl.style.display = 'block';
         }
-    }, 300)  
+    }, 200)  
 }
 
 //Adding new element below the 4 options to display "Right!" when right answer is selected
