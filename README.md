@@ -4,6 +4,8 @@
 
 Link: https://afsha-22.github.io/code-quiz/
 
+![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./assets/demo-code-quiz.gif)
+
 > **Note**: The above mockup image is not the true representation of the actual page. Please visit the above link to experience the actual design and functionalities.
 
 ## Objectives & Functionalities:

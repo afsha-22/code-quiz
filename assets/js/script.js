@@ -219,8 +219,8 @@ function printWrong(quest){
 function question(quest){
     setTimeout(function(){
         if(quest==="question1"){
-            question1.style.display = 'none';
             welcomeEl.style.display = 'none';
+            question1.style.display = 'none';
             question2.style.display = 'block';
         } else if(quest==="question2"){
             welcomeEl.style.display = 'none';
