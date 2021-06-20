@@ -16,6 +16,11 @@ header {
   background-color: white;
 }
 
+.high-score-page {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
 #high-score a {
   color: var(--yellow);
   text-decoration: none;
@@ -101,6 +106,7 @@ li :hover {
 .buttons {
   display: flex;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .buttons button {
