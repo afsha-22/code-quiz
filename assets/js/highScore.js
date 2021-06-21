@@ -25,6 +25,7 @@ for(var i=0;i<newArrayScore.length;i++){
         s1.style.backgroundColor="#fce9ae";
     }
     newEl.appendChild(s1)
+    newEl.style.border ="5px solid #fce9ae";
 }
 }
 
