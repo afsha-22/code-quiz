@@ -7,25 +7,30 @@ var arrayScore = localStorage.getItem("score");
 var arrayName = localStorage.getItem("name");
 
 //Splitting the name 
-var trial = localStorage.getItem("name");
-var arrayName = trial.split(',');
+var nameString = localStorage.getItem("name");
+if(nameString != null){
+    var arrayName = nameString.split(',');
+}
 
 //Parsing the score
 var newArrayScore = JSON.parse("[" + arrayScore + "]");
 
 //Logic to add new line to add new name and score
+if(nameString != null){
 for(var i=0;i<newArrayScore.length;i++){
     var index = i+1;
     var s1 = document.createElement('p')
     s1.textContent =  index + ". " +arrayName[i]+ ": " +newArrayScore[i];
-    if(index % 2 !== 0){
+    if((index % 2 !== 0)){
         s1.style.backgroundColor="#fce9ae";
     }
     newEl.appendChild(s1)
 }
+}
 
-//Logic to go back to welco
+//Logic to go back to welcome Page
 function BackToHomePage(){
+    console.log("button clicked")
     window.location.replace("index.html");
 }
 
