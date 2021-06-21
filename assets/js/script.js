@@ -74,6 +74,9 @@ function stopTimer(t){
 //Display question1 and logic when answer is selected
 function moveToQuest2(event){
     var element = event.target;
+    for (var i = 0; i < q1Btn.length; i++) {
+        q1Btn[i].disabled = true;
+    }
     var quest = element.getAttribute("data-quest")
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
@@ -94,6 +97,9 @@ function moveToQuest2(event){
 //Display question2 and logic when answer is selected
 function moveToQuest3(event){
     var element = event.target;
+    for (var i = 0; i < q2Btn.length; i++) {
+        q2Btn[i].disabled = true;
+    }
     var quest = element.getAttribute("data-quest")
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
@@ -114,6 +120,9 @@ function moveToQuest3(event){
 //Display question3 and logic when answer is selected
 function moveToQuest4(event){
     var element = event.target;
+    for (var i = 0; i < q3Btn.length; i++) {
+        q3Btn[i].disabled = true;
+    }
     var quest = element.getAttribute("data-quest")
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
@@ -134,6 +143,9 @@ function moveToQuest4(event){
 //Display question4 and logic when answer is selected
 function moveToQuest5(event){
     var element = event.target;
+    for (var i = 0; i < q4Btn.length; i++) {
+        q4Btn[i].disabled = true;
+    }
     var quest = element.getAttribute("data-quest")
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
@@ -154,6 +166,9 @@ function moveToQuest5(event){
 //Display question5 and logic when answer is selected
 function moveToLastPage(event){
     var element = event.target;
+    for (var i = 0; i < q5Btn.length; i++) {
+        q5Btn[i].disabled = true;
+    }
     var quest = element.getAttribute("data-quest")
     var ans = element.getAttribute("data-answer")
     if(ans==="wrong"){
@@ -246,7 +261,7 @@ function question(quest){
             question5.style.display = 'none';
             lastPageEl.style.display = 'block';
         }
-    }, 200)  
+    }, 1000)  
 }
 
 //Adding new element below the 4 options to display "Right!" when right answer is selected
