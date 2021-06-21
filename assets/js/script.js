@@ -191,6 +191,8 @@ function wrongAns(){
 
 //Adding new element below the 4 options to display "Wrong!" when wrong answer is selected
 function printWrong(quest){
+    var audio = new Audio("./assets/audio/wrongAnswer.mp3");
+    audio.play();
     var pEl = document.createElement('p');
     var pText = document.createTextNode("Wrong!");
     pEl.appendChild(pText)
@@ -249,6 +251,8 @@ function question(quest){
 
 //Adding new element below the 4 options to display "Right!" when right answer is selected
 function printRight(quest){
+    var audio = new Audio("./assets/audio/correctAnswer.mp3");
+    audio.play();
     var pEl = document.createElement('p');
     var pText = document.createTextNode("Right!");
     pEl.style.borderTop = "thick solid #e3e1da";
